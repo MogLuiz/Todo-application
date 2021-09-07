@@ -45,7 +45,7 @@ export default class Todo extends Component {
                     description={this.state.description}
                     handleChange={this.handleChange}
                 /> 
-                <TodoList />
+                <TodoList list={this.state.list}/>
             </div>
         )
     }
