@@ -17,6 +17,7 @@ export default class Todo extends Component {
 
         this.handleChange = this.handleChange.bind(this)
         this.handleAdd = this.handleAdd.bind(this)
+        this.handleRemove = this.handleRemove.bind(this)
 
         this.refresh()
     }
@@ -36,6 +37,11 @@ export default class Todo extends Component {
             .then(res => console.log('Funfou'))
     }
 
+    handleRemove(todo) {
+        axios.delete(`${URL}/${todo._id}`)
+            .then(res => this.refresh())
+    }
+
     render() {
         return(
             <div>
@@ -45,7 +51,10 @@ export default class Todo extends Component {
                     description={this.state.description}
                     handleChange={this.handleChange}
                 /> 
-                <TodoList list={this.state.list}/>
+                <TodoList 
+                    list={this.state.list}
+                    handleRemove={this.handleRemove}
+                />
             </div>
         )
     }
