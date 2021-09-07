@@ -24,7 +24,9 @@ export default class Todo extends Component {
     }
 
     handleAdd() {
-        console.log("add")
+        const description = this.state.description
+        axios.post(URL, { description })
+            .then(res => console.log('Funfou'))
     }
 
     render() {
