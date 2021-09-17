@@ -4,10 +4,12 @@ import App from './main/app'
 
 // Redux
 import { createStore, applyMiddleware } from 'redux'
-import promise from 'redux-promise'
 import { Provider } from 'react-redux'
-
 import rootReducer from './main/reducers'
+
+// Middlewares
+import promise from 'redux-promise'
+
 
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
