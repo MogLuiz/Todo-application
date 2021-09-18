@@ -20,7 +20,7 @@ const TodoList = props => {
                     <IconButton 
                         style="success" 
                         icon="check"
-                        onClick={() => props.handleMarkAsDone(todo)}
+                        onClick={() => props.markAsDone(todo)}
                         hide={todo.done}
                     />
                     <IconButton 
@@ -63,4 +63,4 @@ const mapStateToProps = state => ({list: state.todo.list})
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ markAsDone }, dispatch)
 
-export default connect(mapStateToProps)(TodoList)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
