@@ -30,10 +30,13 @@ export const add = (description) => {
 export const markAsDone = (todo) => {
     return dispatch => {
         axios.put(`${URL}/${todo._id}`, { ...todo, done: true })
-            .then(res => dispatch({
-                type: 'TODO_MARKED_AS_DONE',
-                payload: res.data
-            }))
+            .then(res => dispatch(search()))
+    }
+}
+
+export const markAsPending = (todo) => {
+    return dispatch => {
+        axios.put(`${URL}/${todo._id}`, { ...todo, done: false })
             .then(res => dispatch(search()))
     }
 }
