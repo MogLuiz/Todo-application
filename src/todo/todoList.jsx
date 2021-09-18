@@ -2,6 +2,10 @@ import React from 'react'
 import IconButton from '../template/iconButton'
 
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import { markAsDone } from './todoActions'
+
 
 const TodoList = props => {
 
@@ -56,5 +60,7 @@ const TodoList = props => {
 }
 
 const mapStateToProps = state => ({list: state.todo.list})
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({ markAsDone }, dispatch)
 
 export default connect(mapStateToProps)(TodoList)
